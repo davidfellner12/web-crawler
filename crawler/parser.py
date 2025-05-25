@@ -8,3 +8,11 @@ def extract_links(base_url, html):
         link = urljoin(base_url,a['href'])
         links.add(link)
     return links
+
+def extract_metadata(html, url):
+    soup = BeautifulSoup(html, "html.parser")
+    title = soup.title.string.strip() if soup.title and soup.title.string else ""
+    return {
+        "url": url,
+        "title": title
+    }

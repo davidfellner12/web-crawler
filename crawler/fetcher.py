@@ -1,4 +1,5 @@
 import requests
+import aiohttp
 
 def fetch_page(url):
     try:

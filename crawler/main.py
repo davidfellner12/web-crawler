@@ -1,7 +1,7 @@
 from crawler.fetcher import fetch_page
-from crawler.parser import extract_links
+from crawler.parser import extract_links, extract_metadata
 from crawler.robots import is_allowed
-from crawler.storage import save_page
+from crawler.storage import save_page, save_metadata
 from urllib.parse import urlparse
 from collections import deque
 import time
@@ -11,7 +11,7 @@ domain = "example.com"
 
 
 def crawl(url):
-    queue = deque([seed])
+    queue = deque([url])
 
     while queue:
         url = queue.popleft()
@@ -24,9 +24,12 @@ def crawl(url):
             html = fetch_page(url)
         except Exception as e:
             print(f"Failed to fetch {url}: {e}")
-            return
+            continue
         if html:
             save_page(url, html)
+            metadata = extract_metadata(html,url)
+            save_metadata(url, metadata)
+
             for link in extract_links(url, html):
                 if domain in urlparse(link).netloc and link not in visited:
                     queue.append(link)
