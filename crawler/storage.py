@@ -1,5 +1,6 @@
 import os
 
+
 def save_page(url, html, folder="pages"):
     if not os.path.exists(folder):
         os.makedirs(folder)
