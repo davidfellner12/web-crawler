@@ -14,5 +14,5 @@ A simple Python web crawler that recursively crawls pages within a single domain
 1. Clone this repo:
 
 ```bash
-git clone https://github.com/davidfellner12/web-crawler.git
-cd web-crawler
+cd C:\Users\david\Desktop\Web_Crawler\MY_ACTUAL_CRAWLER
+python -m crawler.main
