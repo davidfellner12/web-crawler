@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  crawler:
+    build: .
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    command: ["python", "-m", "crawler.main", "https://example.com"]
