@@ -1,18 +1,23 @@
-# Web Crawler
+# 🕷️ Python Web Crawler
 
-A simple Python web crawler that recursively crawls pages within a single domain, respecting robots.txt, extracting links, and saving page content.
+A simple Python web crawler that recursively crawls pages within a single domain, respects `robots.txt`, extracts links and metadata, and saves page content.
 
-## Features
+## ✨ Features
 
-- Domain-restricted recursive crawling
-- robots.txt compliance
-- Polite crawling with delay
-- Local storage of pages
+- ✅ Domain-restricted recursive crawling
+- ✅ `robots.txt` compliance
+- ✅ Polite crawling (1s delay between requests)
+- ✅ Redis-based URL queue and visited set
+- ✅ Page content and metadata storage
 
-## Setup
+---
 
-1. Clone this repo:
+## 🚀 Quickstart (with Docker)
+
+You need **Docker** and **Docker Compose** installed.
+
+1. **Clone the repository**:
 
 ```bash
-cd C:\Users\david\Desktop\Web_Crawler\MY_ACTUAL_CRAWLER
-python -m crawler.main
+git clone https://github.com/davidfellner12/web-crawler.git
+cd my-crawler
