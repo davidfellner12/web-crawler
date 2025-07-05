@@ -2,7 +2,7 @@ import argparse
 import os
 from urllib.parse import urlparse
 
-from crawler.worker import CrawlerWorker
+from worker import CrawlerWorker
 
 
 def main():

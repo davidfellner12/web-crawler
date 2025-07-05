@@ -3,10 +3,10 @@ import redis
 import time
 from urllib.parse import urlparse
 
-from crawler.fetcher import fetch_page
-from crawler.parser import extract_links, extract_metadata
-from crawler.robots import is_allowed
-from crawler.storage import save_page, save_metadata
+from fetcher import fetch_page
+from parser import extract_links, extract_metadata
+from robots import is_allowed
+from storage import save_page, save_metadata
 
 
 class CrawlerWorker:
