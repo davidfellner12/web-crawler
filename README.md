@@ -22,27 +22,14 @@ cd web-crawler
 This crawler uses Redis for managing its queue and state. Make sure Redis is running locally.
 
 Option A: Run Redis using Docker (Recommended)
-bash
-Kopieren
-Bearbeiten
 docker run -d -p 6379:6379 --name redis redis
+
 Option B: Install Redis manually
 Follow instructions at: https://redis.io/docs/getting-started/installation/
 
 3. 🕸️ Start the Crawler
 You can now start crawling by running:
-
-bash
-Kopieren
-Bearbeiten
 python crawler.py --start-url https://example.com
-Additional flags:
-
---max-pages: Limit the number of pages to crawl (default: unlimited)
-
---output: Save crawled content to a folder or file
-
---delay: Set crawl delay in seconds (default: 1)
 
 🔧 Features
 Domain-Restricted Crawling: Only follows links within the start domain.
