@@ -13,12 +13,11 @@ A simple and extensible Python web crawler that:
 
 🚀 Quickstart
 1. 📦 Clone the Repository
-bash
-Kopieren
-Bearbeiten
 git clone https://github.com/davidfellner12/web-crawler.git
-cd web-crawler
-2. 🧠 Run Redis (Required)
+cd MY_ACTUAL_CRAWLER
+cd crawler
+
+3. 🧠 Run Redis (Required)
 This crawler uses Redis for managing its queue and state. Make sure Redis is running locally.
 
 Option A: Run Redis using Docker (Recommended)
