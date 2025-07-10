@@ -34,6 +34,16 @@ python main.py https://example.com
 🔧 Features
 Domain-Restricted Crawling: Only follows links within the start domain.
 
+### ⚠️ Important: Reset Redis Queue for Fresh Crawls
+
+If you're scraping a **new website** or adding **new features**,  
+**make sure to clear the Redis queue and visited URLs** to avoid re-processing old data.
+
+Run the crawler with the `--reset-redis` flag to clear Redis before starting:
+
+```bash
+python main.py https://example.com --reset-redis
+
 Robots.txt Compliance: Automatically parses and respects disallowed paths.
 
 Polite Crawling: Adds delay between requests to avoid server overload.
