@@ -33,15 +33,22 @@ class CrawlerWorker:
             print(f"[QUEUE] Pushing URL to queue: {url}")
             self.r.lpush(self.queue_key, url)
 
-    def deque_url(self):
-        _, url = self.r.brpop(self.queue_key)
+    def deque_url(self, timeout=10):
+        item = self.r.brpop(self.queue_key, timeout=timeout)
+        if item is None:
+            return None
+        _, url = item
         url = url.decode('utf-8')
         print(f"[QUEUE] Popped URL from queue: {url}")
         return url
 
-    def crawl(self):
-        while True:
+    def crawl(self, max_pages=100):
+        crawled_count = 0
+        while crawled_count < max_pages:
             url = self.deque_url()
+            if url is None:
+                print("[CRAWL] Queue is empty or timed out. Exiting.")
+                break
 
             if self.r.sismember(self.visited_key, url):
                 print(f"[CRAWL] URL already visited: {url}")
@@ -65,9 +72,12 @@ class CrawlerWorker:
 
                 self.r.sadd(self.visited_key, url)
                 print(f"[CRAWL] Saved and marked visited: {url}")
+                crawled_count += 1
 
                 for link in extract_links(url, html):
                     if self.domain in urlparse(link).netloc and not self.r.sismember(self.visited_key, link):
                         self.enque_url(link)
 
                 time.sleep(1)
+
+        print(f"[CRAWL] Finished crawling. Total pages crawled: {crawled_count}")
