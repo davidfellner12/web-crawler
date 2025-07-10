@@ -39,6 +39,5 @@ def main():
     print(f"[CRAWLER] Starting crawl loop (max_pages={max_pages})...")
     worker.crawl(max_pages=max_pages)
 
-
 if __name__ == "__main__":
     main()
