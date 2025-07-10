@@ -29,7 +29,7 @@ Follow instructions at: https://redis.io/docs/getting-started/installation/
 
 3. 🕸️ Start the Crawler
 You can now start crawling by running:
-python crawler.py --start-url https://example.com
+python main.py https://example.com
 
 🔧 Features
 Domain-Restricted Crawling: Only follows links within the start domain.
