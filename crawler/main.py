@@ -3,7 +3,7 @@ import os
 from urllib.parse import urlparse
 
 from worker import CrawlerWorker
-
+from db.db import init_db
 
 def main():
     parser = argparse.ArgumentParser(description="Simple Web Crawler")
@@ -25,6 +25,9 @@ def main():
     print(f"[INIT] Seed URL: {seed_url}")
     print(f"[INIT] Domain: {domain}")
     print(f"[INIT] Connecting to Redis at host: {redis_host}")
+
+    # Initialize SQLite database (create table if not exists)
+    init_db()
 
     worker = CrawlerWorker(domain, redis_host=redis_host)
 

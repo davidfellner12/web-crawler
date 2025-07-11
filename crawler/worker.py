@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 from fetcher import fetch_page
 from parser import extract_links, extract_metadata
 from robots import is_allowed
-from storage import save_page, save_metadata
+from storage import save_page_to_db
 
 
 class CrawlerWorker:
@@ -66,9 +66,8 @@ class CrawlerWorker:
                 continue
 
             if html:
-                save_page(url, html)
                 metadata = extract_metadata(html, url)
-                save_metadata(url, metadata)
+                save_page_to_db(url, html, metadata)
 
                 self.r.sadd(self.visited_key, url)
                 print(f"[CRAWL] Saved and marked visited: {url}")
