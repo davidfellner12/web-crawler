@@ -26,7 +26,6 @@ def main():
     print(f"[INIT] Domain: {domain}")
     print(f"[INIT] Connecting to Redis at host: {redis_host}")
 
-    # Initialize SQLite database (create table if not exists)
     init_db()
 
     worker = CrawlerWorker(domain, redis_host=redis_host)

@@ -46,9 +46,6 @@ class CrawlerWorker:
         crawled_count = 0
         while crawled_count < max_pages:
             url = self.deque_url()
-            if url is None:
-                print("[CRAWL] Queue is empty or timed out. Exiting.")
-                break
 
             if self.r.sismember(self.visited_key, url):
                 print(f"[CRAWL] URL already visited: {url}")
