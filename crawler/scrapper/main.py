@@ -2,8 +2,9 @@ import argparse
 import os
 from urllib.parse import urlparse
 
-from worker import CrawlerWorker
-from db.db import init_db
+from .worker import CrawlerWorker
+from ..db.db import init_db
+
 
 def main():
     parser = argparse.ArgumentParser(description="Simple Web Crawler")

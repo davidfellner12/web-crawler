@@ -28,3 +28,5 @@ response = requests.get(url)
 
 soup = BeautifulSoup(response.text, 'html.parser')
 print("Page title:", soup.title.text)
+
+    
