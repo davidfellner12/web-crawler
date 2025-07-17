@@ -2,3 +2,12 @@ beautifulsoup4
 requests
 redis
 aiohttp
+python-dotenv
+langchain
+openai
+faiss-cpu
+tiktoken
+langchain-openai
+langchain-community
+tf-keras
+langchain-huggingface
