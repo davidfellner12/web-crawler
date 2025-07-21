@@ -3,7 +3,7 @@ import os
 from urllib.parse import urlparse
 
 from .worker import CrawlerWorker
-from ..db.db import init_db
+from ..db.db import init_db, clear_db
 
 
 def main():
@@ -27,6 +27,7 @@ def main():
     print(f"[INIT] Domain: {domain}")
     print(f"[INIT] Connecting to Redis at host: {redis_host}")
 
+    clear_db()
     init_db()
 
     worker = CrawlerWorker(domain, redis_host=redis_host)

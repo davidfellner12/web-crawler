@@ -37,3 +37,10 @@ def save_to_db(metadata, html):
     ))
     conn.commit()
     conn.close()
+
+def clear_db():
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute('DELETE FROM pages')
+    conn.commit()
+    conn.close()
