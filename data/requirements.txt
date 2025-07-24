@@ -11,3 +11,6 @@ langchain-openai
 langchain-community
 tf-keras
 langchain-huggingface
+transformers
+torch
+sentencepiece

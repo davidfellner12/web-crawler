@@ -27,6 +27,7 @@ def main():
     print(f"[INIT] Domain: {domain}")
     print(f"[INIT] Connecting to Redis at host: {redis_host}")
 
+    ##TODO take care of proper db insertion
     clear_db()
     init_db()
 

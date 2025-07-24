@@ -147,7 +147,7 @@ async def index(request):
                 font-size: 16px;
                 box-shadow: 0 4px 10px rgba(77, 144, 254, 0.3);
                 transition: background-color 0.3s ease;
-            }
+            }   
 
             input[type="submit"]:hover {
                 background-color: #3a7fe0;
