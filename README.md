@@ -1,5 +1,6 @@
 🕷️ Python Web Crawler
 A simple and extensible Python web crawler that:
+Scrapped content will be used for rag refinement later on.
 
 ✅ Recursively crawls pages within a single domain
 
